@@ -13,3 +13,14 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# FUNCTIONS:
+
+spoof-commit() {
+  GIT_COMMITTER_DATE="$1" git commit --date "$1" "${@:2}"
+}
+
+csv-view() {
+  column -s, -t < "$1" | less -#2 -N -S
+}
+
